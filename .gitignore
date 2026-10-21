@@ -1,0 +1,10 @@
+build/
+build-asan/
+data/
+*.db
+*.db-wal
+*.db-shm
+
+# Local binaries and backups
+dreamlink
+main.cpp.original-backup
