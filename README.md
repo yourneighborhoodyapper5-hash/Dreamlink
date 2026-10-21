@@ -46,5 +46,4 @@ ids, which shows duplicate handling: everything valid comes back "duplicate".
     src/sim_main.cpp    dreamlink_sim command
     tests/test_main.cpp tests (no framework needed)
     docs/               PLAN.md, PROTOCOL.md, HARDWARE_REQUIREMENTS.md
-
 Your original `main.cpp` is untouched and is not part of this build.
