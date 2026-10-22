@@ -118,5 +118,7 @@ Everyone should be respectful, protect other people's privacy, and distinguish e
 Replace the placeholder below with the actual repository URL:
 
 ```bash
-git clone (https://github.com/yourneighborhoodyapper5-hash/Dreamlink/edit/main/README.md)
+git clone https://github.com/yourneighborhoodyapper5-hash/Dreamlink
 cd dreamlink
+```
+Nvm I did for you lazy people😡
