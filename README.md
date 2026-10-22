@@ -81,6 +81,31 @@ The technology stack may evolve as requirements become clearer.
 
 Dreamlink is under active development, so setup instructions may change as the foundation matures.
 
+## 🌐 Community
+
+Dreamlink is being built with the help of people interested in software development, sleep research, sensors, hardware, design, and experimental technology.
+
+You don't need to be an expert to participate. Beginners, curious people, testers, and experienced developers are all welcome.
+
+### 💬 Join the Community
+
+Join the Dreamlink Discord to:
+- 💡 Share ideas and discuss possible features
+- 🔬 Explore sleep research and sensor technology
+- 💻 Contribute to development and documentation
+- 🧪 Test prototypes and report bugs
+- 🤝 Meet other people interested in the project
+
+**Discord:** [Join the Dreamlink Community] (https://discord.gg/JGXAmsNb3n)
+
+### 🛠️ Get Involved
+
+You can contribute by writing code, researching hardware, improving documentation, testing features, suggesting ideas, or helping make the project better.
+
+Check the repository's issues and contribution guidelines to see what needs work.
+
+Everyone should be respectful, protect other people's privacy, and distinguish experimental ideas from scientifically verified results.
+
 ### Requirements
 
 - A Linux environment.
