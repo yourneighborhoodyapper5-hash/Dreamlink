@@ -1,49 +1,97 @@
-# Dreamlink — software foundation (Phase 1)
+# Dreamlink
 
-A simulated event pipeline: fake "sensor-derived" events are validated,
-authorized, classified by confidence, written to a durable append-only log,
-and routed to session subscribers.
+**An experimental multiplayer dream research and simulation platform.**
 
-**Dreamlink does not read dreams or share them between people.** Everything
-here runs on simulated data. Real sensors will plug in later behind the same
-protocol (`docs/PROTOCOL.md`).
+Dreamlink is an open-source project exploring the software foundations for connected, sleep-related experiences. It begins with simulated signals, structured events, and session-based experimentation, with future plans for hardware research and multiplayer sessions.
 
-## Build and test (Debian 13)
+> **Scientific honesty:** Dreamlink does not currently detect dreams, read thoughts, or enable real dream sharing. Its initial software foundation focuses on simulated events and reliable infrastructure for future research.
 
-    sudo apt install build-essential        # g++ and make, if not installed
-    cd /srv/sam/dreamlink
-    make                  # builds build/dreamlink_sim and build/dreamlink_tests
-    make test             # runs the unit/integration tests
-    make asan             # same tests under AddressSanitizer + UBSan
-    make run-sim          # 200 simulated messages -> data/events.jsonl
+## 🚧 Project Status
 
-Everything is written under the project directory (`build/`, `data/`), never
-to `/` outside the project. A simulated event is roughly 300 bytes of log.
+**Early development — Phase 1**
 
-Optional SQLite backend:
+Dreamlink is being developed on Linux, with VEGA serving as the development server.
 
-    sudo apt install libsqlite3-dev
-    make clean && make SQLITE=1
-    build/dreamlink_sim --sqlite data/events.db --events 200
+The initial C++ prototype defines the core event structures used by the system:
 
-## Simulator options
+- `EventType` — identifies the kind of event.
+- `Event` — contains an event ID, session ID, event type, confidence value, timestamp, and payload.
 
-    build/dreamlink_sim --events 1000 --seed 42 --fault-rate 0.2 --dup-rate 0.1 --verbose
+These structures form the foundation for event validation, serialization, simulation, and persistent storage.
 
-Re-running with the same `--seed` and the same log re-sends the same event
-ids, which shows duplicate handling: everything valid comes back "duplicate".
+Features should be considered experimental until implemented and tested.
 
-## Layout
+## 🗺️ Roadmap
 
-    src/json.*          strict JSON parser/writer (no dependencies)
-    src/event.*         Event model, UUID v4, timestamps
-    src/codec.*         wire format v1: encode, strict decode, validation, limits
-    src/store.hpp       append-only log interface
-    src/jsonl_store.*   JSON-lines log: fsync, file lock, torn-write recovery
-    src/sqlite_store.*  optional SQLite log (append-only enforced by triggers)
-    src/pipeline.*      validate -> authorize -> classify -> log -> route
-    src/simulator.*     fake events + deliberate faults
-    src/sim_main.cpp    dreamlink_sim command
-    tests/test_main.cpp tests (no framework needed)
-    docs/               PLAN.md, PROTOCOL.md, HARDWARE_REQUIREMENTS.md
-Your original `main.cpp` is untouched and is not part of this build.
+### Phase 1 — Software Foundation
+- [ ] Establish and expand automated tests.
+- [ ] Define a documented event wire format.
+- [ ] Validate event fields and confidence values.
+- [ ] Generate simulated events for testing.
+- [ ] Implement an append-only SQLite event log.
+- [ ] Test serialization, validation, persistence, and error handling.
+
+### Phase 2 — Device Protocol
+- [ ] Define how devices communicate with the server.
+- [ ] Specify message formats, validation, and error handling.
+- [ ] Establish a safe interface for future hardware integrations.
+
+### Phase 3 — Website and Multiplayer
+- [ ] Develop a web interface.
+- [ ] Introduce shared sessions between users.
+- [ ] Explore synchronized event streams and session communication.
+- [ ] Add appropriate session controls and privacy safeguards.
+
+### Phase 4 — Hardware Research
+- [ ] Investigate affordable, suitable sensors.
+- [ ] Research what available sensors can actually measure.
+- [ ] Evaluate signal quality, limitations, and practical feasibility.
+- [ ] Integrate hardware when the software and research justify it.
+
+Hardware research is exploratory. No particular sensor is assumed to be capable of detecting dreams or transmitting dream experiences.
+
+### Phase 5 — Wake and Session Controls
+- [ ] Implement reliable session start and end controls.
+- [ ] Provide a manual fallback for ending a session.
+- [ ] Investigate wake-related features and their practical limitations.
+- [ ] Consider safety, usability, and sleep disruption.
+
+## 🧭 Design Principles
+
+- **Open source:** Build transparently and welcome constructive contributions.
+- **Linux first:** Prioritize Linux development and testing.
+- **Local processing:** Prefer local computation and storage where practical.
+- **No paid APIs:** Keep the core project independent of paid API services.
+- **Minimal sensitive data:** Collect and retain only what is necessary.
+- **Scientific honesty:** Clearly distinguish simulated events, measured signals, and unverified hypotheses.
+- **Incremental development:** Establish a reliable foundation before introducing complex features.
+
+## 🛠️ Technology
+
+The initial software foundation uses:
+
+- **C++17** for the core prototype.
+- **SQLite** for planned persistent event logging.
+- **Linux** as the primary development platform.
+- **Automated tests** to verify correctness as the project evolves.
+
+The technology stack may evolve as requirements become clearer.
+
+## 🚀 Getting Started
+
+Dreamlink is under active development, so setup instructions may change as the foundation matures.
+
+### Requirements
+
+- A Linux environment.
+- A C++17-compatible compiler.
+- GNU Make, if using the project's Makefile.
+- SQLite development libraries when required by the implementation.
+
+### Clone the repository
+
+Replace the placeholder below with the actual repository URL:
+
+```bash
+git clone (https://github.com/yourneighborhoodyapper5-hash/Dreamlink/edit/main/README.md)
+cd dreamlink
