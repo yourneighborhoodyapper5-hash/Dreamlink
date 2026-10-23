@@ -24,8 +24,8 @@ Features should be considered experimental until implemented and tested.
 ## 🗺️ Roadmap
 
 ### Phase 1 — Software Foundation
-- [ ] Establish and expand automated tests.
-- [ ] Define a documented event wire format.
+- [X] Establish and expand automated tests.
+- [X] Define a documented event wire format.
 - [ ] Validate event fields and confidence values.
 - [ ] Generate simulated events for testing.
 - [ ] Implement an append-only SQLite event log.
